@@ -1,0 +1,28 @@
+.demo-main {
+  padding-left: 16px;
+}
+
+.demo-content {
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.demo-grid {
+  background-color: #DDDDDD;
+  margin-bottom: 32px;
+}
+
+.demo-cell {
+  box-sizing: border-box;
+  background-color: #666666;
+  height: 200px;
+  padding: 8px;
+  color: white;
+
+  font-size: 1.5em;
+}
+
+.grey-bg {
+  background: rgba(0, 0, 0, .26);
+}
