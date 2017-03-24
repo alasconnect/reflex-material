@@ -6,4 +6,4 @@ A Haskell [Reflex-Dom](https://hackage.haskell.org/package/reflex-dom) wrapper f
 
     make build-resources
     
-Open `dist/index.html` in a browser.
+Open `docs/index.html` in a browser.
