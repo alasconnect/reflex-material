@@ -1,15 +1,18 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 module Reflex.Material.Toolbar
-  ( ToolbarAlign(..)
+  ( Fixity(..)
+  , ToolbarAlign(..)
   , mdcToolbar_
   , mdcToolbarFixed_
   , mdcToolbarFixedAdjust_
+  , mdcToolbarRow_
   , mdcToolbarSection_
   , mdcToolbarSectionAlignStart_
   , mdcToolbarSectionAlignEnd_
   , mdcToolbarTitle_
   , toolbarHeader_
+  , toolbarRow_
   , toolbarSection_
   , toolbarTitle_
   , toolbar_
@@ -21,6 +24,8 @@ import Reflex.Dom
 
 import Reflex.Material.Types
 
+data Fixity = Fixed | NotFixed
+
 data ToolbarAlign = AlignStart | AlignCenter | AlignEnd
 
 mdcToolbar_ :: CssClass
@@ -31,6 +36,9 @@ mdcToolbarFixed_ = CssClass "mdc-toolbar--fixed"
 
 mdcToolbarFixedAdjust_ :: CssClass
 mdcToolbarFixedAdjust_ = CssClass "mdc-toolbar-fixed-adjust"
+
+mdcToolbarRow_ :: CssClass
+mdcToolbarRow_ = CssClass "mdc-toolbar__row"
 
 mdcToolbarSection_ :: CssClass
 mdcToolbarSection_ = CssClass "mdc-toolbar__section"
@@ -44,9 +52,12 @@ mdcToolbarSectionAlignEnd_ = CssClass "mdc-toolbar__section--align-end"
 mdcToolbarTitle_ :: CssClass
 mdcToolbarTitle_ = CssClass "mdc-toolbar__title"
 
-toolbarHeader_ :: MonadWidget t m => Bool -> m a -> m a
-toolbarHeader_ False = elClass "header" (unCssClass mdcToolbar_)
-toolbarHeader_ True  = elClass "header" (unCssClass $ mdcToolbar_ <> mdcToolbarFixed_)
+toolbarHeader_ :: MonadWidget t m => Fixity -> m a -> m a
+toolbarHeader_ NotFixed = elClass "header" (unCssClass mdcToolbar_)
+toolbarHeader_ Fixed    = elClass "header" (unCssClass $ mdcToolbar_ <> mdcToolbarFixed_)
+
+toolbarRow_ :: MonadWidget t m => CssClass -> m a -> m a
+toolbarRow_ t = elClass "div" (unCssClass $ mdcToolbarRow_ <> t)
 
 toolbarSection_ :: MonadWidget t m => CssClass -> m a -> m a
 toolbarSection_ t = elClass "section" (unCssClass $ mdcToolbarSection_ <> t)
@@ -54,14 +65,14 @@ toolbarSection_ t = elClass "section" (unCssClass $ mdcToolbarSection_ <> t)
 toolbarTitle_ :: MonadWidget t m => Text -> m ()
 toolbarTitle_ = elClass "span" (unCssClass mdcToolbarTitle_) . text
 
--- | The 'True' will fix the toolbar to the top.
-toolbar_ :: MonadWidget t m => Bool -> ToolbarAlign -> Maybe Text -> m a -> m a
+toolbar_ :: MonadWidget t m => Fixity -> ToolbarAlign -> Maybe Text -> m a -> m a
 toolbar_ f x t c =
   toolbarHeader_ f $
-    toolbarSection_ tba $
-      case t of
-        Nothing -> c
-        Just t' -> toolbarTitle_ t' >> c
+    toolbarRow_ mempty $
+      toolbarSection_ tba $
+        case t of
+          Nothing -> c
+          Just t' -> toolbarTitle_ t' >> c
   where
     tba = case x of
             AlignStart  -> mdcToolbarSectionAlignStart_

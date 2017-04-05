@@ -7,4 +7,4 @@ import Reflex.Dom
 import Reflex.Material.Toolbar
 
 toolbar :: MonadWidget t m => m ()
-toolbar = toolbar_ True AlignStart (Just "Example Reflex-Material") $ pure ()
+toolbar = toolbar_ Fixed AlignStart (Just "Example Reflex-Material") $ pure ()
