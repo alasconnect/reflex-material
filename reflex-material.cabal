@@ -19,13 +19,19 @@ library
                      , Reflex.Material.Basic
                      , Reflex.Material.Button
                      , Reflex.Material.Card
+                     , Reflex.Material.Checkbox
                      , Reflex.Material.Drawer
+                     , Reflex.Material.FormField
                      , Reflex.Material.LayoutGrid
                      , Reflex.Material.List
+                     , Reflex.Material.Radio
+                     , Reflex.Material.Select
+                     , Reflex.Material.TextField
                      , Reflex.Material.Toolbar
                      , Reflex.Material.Types
                      , Reflex.Material.Typography
   build-depends:       base >= 4.7 && < 5
+                     , containers
                      , reflex-dom >= 0.4 && < 0.5
                      , text >= 1.2 && < 1.3
   default-language:    Haskell2010
@@ -35,6 +41,7 @@ executable reflex-material-exe
   main-is:             Main.hs
   other-modules:       Buttons
                      , Cards
+                     , FormElement
                      , LayoutGrid
                      , Lists
                      , Toolbar

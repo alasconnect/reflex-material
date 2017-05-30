@@ -9,13 +9,13 @@ ghcjs-base-0.2.0.0-5xhv8UHNN2HEGGrDPcFZeW:6817
 ghcjs-dom-0.2.4.0-HlhiVfBVTVJ5SAJYDUzf7S:139632
 ghcjs-prim-0.1.0.0-IFhsWclGfLr1HfhUvIVylA:10676
 integer-gmp:             14239
-main:                    165341
+main:                    206664
 prim-uniq-0.1.0.1-Lbg7Imujn019qkjLCx908j:2786
 primitive-0.6.1.0-PBvNfnj6B81wEvI5CBk0H:809
 ref-tf-0.4.0.1-3hM7hnw7bOB1FwMAOCGwpN:1286
 reflex-0.5.0-IW15LQnszb8KMbKkrNBedL:1147136
-reflex-dom-0.4-7pD9hcWPi7tJa8GOlX5otk:674549
-reflex-material-0.0.1.0-5AuATWEJM2VKyswD8l1HDJ:169637
+reflex-dom-0.4-7pD9hcWPi7tJa8GOlX5otk:675730
+reflex-material-0.0.1.0-2CzWsRiCfEb3Pb2vg6JZx5:256666
 text-1.2.2.1-K5kKypz1wJJhsTy1Ol15P:33386
 these-0.7.3-1DWT8jRlDR698YpWzcD46W:864
 transformers-0.5.2.0-Lvs3wlJMkpyLRFNHJ8pmeB:11531
@@ -141,13 +141,14 @@ integer-gmp
     GHC.Integer.Type:                   14239
 
 main
-    Buttons:                            9714
-    Cards:                              6435
-    LayoutGrid:                         10089
-    Lists:                              53706
-    Main:                               76980
-    Toolbar:                            2289
-    Typography:                         6128
+    Buttons:                            9756
+    Cards:                              6455
+    FormElement:                        37591
+    LayoutGrid:                         10115
+    Lists:                              53880
+    Main:                               80426
+    Toolbar:                            2295
+    Typography:                         6146
 
 prim-uniq-0.1.0.1-Lbg7Imujn019qkjLCx908j
     Unsafe.Unique.Prim:                 1053
@@ -181,20 +182,25 @@ reflex-dom-0.4-7pD9hcWPi7tJa8GOlX5otk
     Foreign.JavaScript.TH:              7621
     Reflex.Dom.Builder.Class:           20107
     Reflex.Dom.Builder.Class.Events:    139720
-    Reflex.Dom.Builder.Immediate:       394179
-    Reflex.Dom.Internal:                28557
-    Reflex.Dom.Widget.Basic:            84365
+    Reflex.Dom.Builder.Immediate:       394482
+    Reflex.Dom.Internal:                28838
+    Reflex.Dom.Widget.Basic:            84962
 
-reflex-material-0.0.1.0-5AuATWEJM2VKyswD8l1HDJ
-    Reflex.Material.Basic:              51954
-    Reflex.Material.Button:             7727
-    Reflex.Material.Card:               18964
-    Reflex.Material.Drawer:             4982
-    Reflex.Material.LayoutGrid:         19202
-    Reflex.Material.List:               12048
-    Reflex.Material.Toolbar:            17881
-    Reflex.Material.Types:              13268
-    Reflex.Material.Typography:         23611
+reflex-material-0.0.1.0-2CzWsRiCfEb3Pb2vg6JZx5
+    Reflex.Material.Basic:              52214
+    Reflex.Material.Button:             7783
+    Reflex.Material.Card:               19068
+    Reflex.Material.Checkbox:           23162
+    Reflex.Material.Drawer:             5016
+    Reflex.Material.FormField:          2759
+    Reflex.Material.LayoutGrid:         19246
+    Reflex.Material.List:               12142
+    Reflex.Material.Radio:              16307
+    Reflex.Material.Select:             24644
+    Reflex.Material.TextField:          17571
+    Reflex.Material.Toolbar:            18009
+    Reflex.Material.Types:              14984
+    Reflex.Material.Typography:         23761
 
 text-1.2.2.1-K5kKypz1wJJhsTy1Ol15P
     Data.Text:                          14097
@@ -213,5 +219,5 @@ transformers-0.5.2.0-Lvs3wlJMkpyLRFNHJ8pmeB
 
 
 
-packed metadata: 604506
+packed metadata: 628019
 
