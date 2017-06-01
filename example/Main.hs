@@ -17,6 +17,7 @@ import Buttons
 import Cards
 import LayoutGrid
 import Lists
+import FormElement
 import Toolbar
 import Typography
 
@@ -37,11 +38,13 @@ nav = do
   (b3, _) <- btn "Layout Grid"
   (b4, _) <- btn "List"
   (b5, _) <- btn "Typography"
-  pure $ leftmost [ buttons    <$ domEvent Click b1
-                  , cards      <$ domEvent Click b2
-                  , layoutGrid <$ domEvent Click b3
-                  , lists      <$ domEvent Click b4
-                  , typography <$ domEvent Click b5
+  (b6, _) <- btn "Form Elements"
+  pure $ leftmost [ buttons      <$ domEvent Click b1
+                  , cards        <$ domEvent Click b2
+                  , layoutGrid   <$ domEvent Click b3
+                  , lists        <$ domEvent Click b4
+                  , typography   <$ domEvent Click b5
+                  , formElements <$ domEvent Click b6
                   ]
   where
     btn :: MonadWidget t m => Text -> m (El t, ())
