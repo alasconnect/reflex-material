@@ -18,7 +18,7 @@ instance Monoid CssClass where
   mempty = CssClass ""
   mappend (CssClass a) (CssClass b) = CssClass (a <> " " <> b)
 
-data Img = Img Text Int Int Text -- file, width, height, alt 
+data Img = Img Text Int Int Text -- file, width, height, alt
 
 data Enabled = Enabled | Disabled
 data Selected = Selected | NotSelected

@@ -11,7 +11,7 @@ import Reflex.Dom
 
 import Reflex.Material.Types
 
-checkbox'_ :: MonadWidget t m => Enabled -> Selected -> Text -> m (El t, ())
+checkbox'_ :: DomBuilder t m => Enabled -> Selected -> Text -> m (Element EventResult (DomBuilderSpace m) t, ())
 checkbox'_ e s v =
   elClass "div" (toClass e) $ do
     x <- elAttr' "input" ( disabledAttr e $

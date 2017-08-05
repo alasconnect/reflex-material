@@ -52,20 +52,20 @@ mdcToolbarSectionAlignEnd_ = CssClass "mdc-toolbar__section--align-end"
 mdcToolbarTitle_ :: CssClass
 mdcToolbarTitle_ = CssClass "mdc-toolbar__title"
 
-toolbarHeader_ :: MonadWidget t m => Fixity -> m a -> m a
+toolbarHeader_ :: DomBuilder t m => Fixity -> m a -> m a
 toolbarHeader_ NotFixed = elClass "header" (unCssClass mdcToolbar_)
 toolbarHeader_ Fixed    = elClass "header" (unCssClass $ mdcToolbar_ <> mdcToolbarFixed_)
 
-toolbarRow_ :: MonadWidget t m => CssClass -> m a -> m a
+toolbarRow_ :: DomBuilder t m => CssClass -> m a -> m a
 toolbarRow_ t = elClass "div" (unCssClass $ mdcToolbarRow_ <> t)
 
-toolbarSection_ :: MonadWidget t m => CssClass -> m a -> m a
+toolbarSection_ :: DomBuilder t m => CssClass -> m a -> m a
 toolbarSection_ t = elClass "section" (unCssClass $ mdcToolbarSection_ <> t)
 
-toolbarTitle_ :: MonadWidget t m => Text -> m ()
+toolbarTitle_ :: DomBuilder t m => Text -> m ()
 toolbarTitle_ = elClass "span" (unCssClass mdcToolbarTitle_) . text
 
-toolbar_ :: MonadWidget t m => Fixity -> ToolbarAlign -> Maybe Text -> m a -> m a
+toolbar_ :: DomBuilder t m => Fixity -> ToolbarAlign -> Maybe Text -> m a -> m a
 toolbar_ f x t c =
   toolbarHeader_ f $
     toolbarRow_ mempty $

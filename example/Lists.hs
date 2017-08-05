@@ -11,7 +11,7 @@ import Reflex.Material.List
 import Reflex.Material.Types
 import Reflex.Material.Typography
 
-lists :: MonadWidget t m => m ()
+lists :: DomBuilder t m => m ()
 lists = do
   display3_ "List"
   title_ "Default"

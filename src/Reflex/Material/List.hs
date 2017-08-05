@@ -52,18 +52,18 @@ mdcListItemTextSecondary_ = CssClass "mdc-list-item__text__secondary"
 mdcListTwoLine_ :: CssClass
 mdcListTwoLine_ = CssClass "mdc-list-item--two-line"
 
-list_ :: MonadWidget t m => Text -> CssClass -> m a -> m a
+list_ :: DomBuilder t m => Text -> CssClass -> m a -> m a
 list_ t c = elClass t (unCssClass $ mdcList_ <> c)
 
-item_ :: MonadWidget t m => Text -> CssClass -> m a -> m a
+item_ :: DomBuilder t m => Text -> CssClass -> m a -> m a
 item_ t c = elClass t (unCssClass $ mdcListItem_ <> c)
 
-twoItem :: MonadWidget t m => m a -> m a -> m ()
+twoItem :: DomBuilder t m => m a -> m a -> m ()
 twoItem a b =
   elClass "span" (unCssClass mdcListItemText_) $ do
     _ <- elClass "span" (unCssClass mdcListItemTextPrimary_) a
     _ <- elClass "span" (unCssClass mdcListItemTextSecondary_) b
     pure ()
 
-itemTwo_ :: MonadWidget t m => Text -> CssClass -> m a -> m a -> m ()
+itemTwo_ :: DomBuilder t m => Text -> CssClass -> m a -> m a -> m ()
 itemTwo_ t c a b = item_ t c $ twoItem a b

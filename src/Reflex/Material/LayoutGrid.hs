@@ -45,10 +45,10 @@ mdcLayoutGridCellAlignMiddle_ = CssClass "mdc-layout-grid__cell--align-middle"
 mdcLayoutGridCellAlignBottom_ :: CssClass
 mdcLayoutGridCellAlignBottom_ = CssClass "mdc-layout-grid__cell--align-bottom"
 
-layout_ :: MonadWidget t m => CssClass -> m a -> m a
+layout_ :: DomBuilder t m => CssClass -> m a -> m a
 layout_ t = elClass "div" (unCssClass $ mdcLayoutGrid_ <> t)
 
-cell_ :: MonadWidget t m => CssClass -> m a -> m ()
+cell_ :: DomBuilder t m => CssClass -> m a -> m ()
 cell_ t c = elClass "div" (unCssClass (mdcLayoutGridCell_ <> t)) $ c >> pure ()
 
 span_ :: Int -> CssClass

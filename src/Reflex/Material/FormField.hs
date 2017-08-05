@@ -17,5 +17,5 @@ mdcFormField_ = CssClass "mdc-form-field"
 mdcFormFieldAlignEnd_ :: CssClass
 mdcFormFieldAlignEnd_ = CssClass "mdc-form-field--align-end"
 
-formFieldContainer_ :: MonadWidget t m => CssClass -> m a -> m a
+formFieldContainer_ :: DomBuilder t m => CssClass -> m a -> m a
 formFieldContainer_ t = elClass "div" (unCssClass (mdcFormField_ <> t))

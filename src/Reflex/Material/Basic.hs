@@ -48,7 +48,7 @@ stylesheet_ l = elAttr "link" ss $ pure ()
       <> "type" =: "text/css"
       <> "href" =: l
 
-script_ :: MonadWidget t m => Text -> m ()
+script_ :: DomBuilder t m => Text -> m ()
 script_ src = elAttr "script" s $ pure ()
   where
     s = "type" =: "text/javascript"
@@ -79,7 +79,7 @@ icon_ i c =
              <> "aria-hidden" =: "true"
              ) $ text i
 
-main_ :: MonadWidget t m => CssClass -> m a -> m ()
+main_ :: DomBuilder t m => CssClass -> m a -> m ()
 main_ t child =
   elClass "main" (unCssClass $ mdcTypography_ <> t) $ do
     _ <- child

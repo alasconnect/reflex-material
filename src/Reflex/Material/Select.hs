@@ -26,7 +26,7 @@ import Reflex.Material.Types
 --   <option value="fats">Fats, Oils, and Sweets</option>
 -- </select>
 
-select'_ :: MonadWidget t m => Enabled -> [SelectOption] -> m (El t, ())
+select'_ :: DomBuilder t m => Enabled -> [SelectOption] -> m (Element EventResult (DomBuilderSpace m) t, ())
 select'_ e sos =
   elAttr' "select" (selectAttrs e) $
     mapM_ renderOption sos

@@ -11,7 +11,7 @@ import Reflex.Dom
 
 import Reflex.Material.Types
 
-radio'_ :: MonadWidget t m => Enabled -> Selected -> Text -> Text -> m (El t, ())
+radio'_ :: DomBuilder t m => Enabled -> Selected -> Text -> Text -> m (Element EventResult (DomBuilderSpace m) t, ())
 radio'_ e s n v =
   elClass "div" (toClass e) $ do
     x <- elAttr' "input" ( disabledAttr e $

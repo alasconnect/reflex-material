@@ -6,7 +6,7 @@ import Reflex.Dom
 
 import Reflex.Material.Typography
 
-typography :: MonadWidget t m => m ()
+typography :: DomBuilder t m => m ()
 typography = do
   display3_ "Typography"
   display4_ "Display 4"

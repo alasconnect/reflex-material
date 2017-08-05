@@ -2,6 +2,8 @@
 
 module Main where
 
+-- import qualified Data.ByteString.Builder as B
+import qualified Data.ByteString as BS
 import Data.Monoid ((<>))
 import Data.Text (Text)
 import Reflex.Dom
@@ -31,7 +33,7 @@ head_ = do
   styles_ defaultStyle
   stylesheet_ "css/example.css"
 
-nav :: MonadWidget t m => m (Event t (m ()))
+nav :: DomBuilder t m => m (Event t (m ()))
 nav = do
   (b1, _) <- btn "Buttons"
   (b2, _) <- btn "Cards"
@@ -47,16 +49,26 @@ nav = do
                   , formElements <$ domEvent Click b6
                   ]
   where
-    btn :: MonadWidget t m => Text -> m (El t, ())
+    btn :: DomBuilder t m => Text -> m (Element EventResult (DomBuilderSpace m) t, ())
     btn t = do
       (e, _) <- elAttr' "span" mempty $ item_ "a" mempty $ do
         icon_ "lens" mdcListItemStartDetail_
         text t
       pure (e, ())
 
-body_ :: MonadWidget t m => m ()
+body_ :: (DomBuilder t m, MonadHold t m) => m ()
 body_ = do
   toolbar
   elClass "div" (unCssClass $ CssClass "demo-content" <> mdcToolbarFixedAdjust_) $ do
     v <- drawer_ mdcPermanentDrawer_ $ drawerContent_ $ list_ "nav" mempty nav
     main_ (CssClass "demo-main") $ widgetHold buttons v
+
+staticRendered :: IO ()
+staticRendered = do
+    (_, bldr) <- renderStatic $ do
+        el "html" (return ())
+        el "head" $ do
+            head_
+            script_ "all.js"
+        el "body" body_
+    BS.writeFile "index.html" bldr
