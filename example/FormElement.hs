@@ -13,7 +13,7 @@ import Reflex.Material.Select
 import Reflex.Material.Typography
 import Reflex.Material.Types
 
-formElements :: MonadWidget t m => m ()
+formElements :: DomBuilder t m => m ()
 formElements = do
   title_ "Text Fields"
   el "div" $ do

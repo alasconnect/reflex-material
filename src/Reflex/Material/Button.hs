@@ -34,8 +34,8 @@ mdcButtonPrimary_ = CssClass "mdc-button--primary"
 mdcButtonAccent_ :: CssClass
 mdcButtonAccent_ = CssClass "mdc-button--accent"
 
-button_ :: MonadWidget t m => CssClass -> Text -> m ()
+button_ :: DomBuilder t m => CssClass -> Text -> m ()
 button_ t v = button'_ t v >> pure ()
 
-button'_ :: MonadWidget t m => CssClass -> Text -> m (El t, ())
+button'_ :: DomBuilder t m => CssClass -> Text -> m (Element EventResult (DomBuilderSpace m) t, ())
 button'_ t v = elAttr' "button" ("class" =: unCssClass (mdcButton_ <> t)) $ text v

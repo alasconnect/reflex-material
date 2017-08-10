@@ -8,7 +8,7 @@ import Reflex.Dom
 import Reflex.Material.Button
 import Reflex.Material.Typography
 
-buttons :: MonadWidget t m => m ()
+buttons :: DomBuilder t m => m ()
 buttons = do
   title_ "Buttons"
   button_ mempty "Default"

@@ -22,11 +22,11 @@ mdcPermanentDrawerContent_ = CssClass "mdc-permanent-drawer__content"
 mdcPermanentDrawerToolbarSpacer_ :: CssClass
 mdcPermanentDrawerToolbarSpacer_ = CssClass "mdc-permanent-drawer__toolbar-spacer"
 
-drawer_ :: MonadWidget t m => CssClass -> m a -> m a
+drawer_ :: DomBuilder t m => CssClass -> m a -> m a
 drawer_ t = elClass "nav" (unCssClass t)
 
-drawerContent_ :: MonadWidget t m => m a -> m a
+drawerContent_ :: DomBuilder t m => m a -> m a
 drawerContent_ = elClass "div" (unCssClass mdcPermanentDrawerContent_)
 
-spacer_ :: MonadWidget t m => m ()
+spacer_ :: DomBuilder t m => m ()
 spacer_ = elClass "div" (unCssClass mdcPermanentDrawerToolbarSpacer_) $ pure ()

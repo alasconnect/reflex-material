@@ -10,7 +10,7 @@ import Reflex.Material.LayoutGrid
 import Reflex.Material.Types
 import Reflex.Material.Typography
 
-layoutGrid :: MonadWidget t m => m ()
+layoutGrid :: DomBuilder t m => m ()
 layoutGrid = do
   display3_ "Layout Grid"
   layout_ (CssClass "demo-grid") $

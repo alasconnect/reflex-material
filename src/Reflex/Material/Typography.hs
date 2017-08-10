@@ -67,38 +67,38 @@ mdcTypographyBody1_ = CssClass "mdc-typography--body1"
 mdcTypographyBody2_ :: CssClass
 mdcTypographyBody2_ = CssClass "mdc-typography--body2"
 
-display4_ :: MonadWidget t m => Text -> m ()
+display4_ :: DomBuilder t m => Text -> m ()
 display4_ = elClass "h1" (unCssClass mdcTypographyDisplay4_) . text
 
-display3_ :: MonadWidget t m => Text -> m ()
+display3_ :: DomBuilder t m => Text -> m ()
 display3_ = elClass "h1" (unCssClass mdcTypographyDisplay3_) . text
 
-display2_ :: MonadWidget t m => Text -> m ()
+display2_ :: DomBuilder t m => Text -> m ()
 display2_ = elClass "h1" (unCssClass mdcTypographyDisplay2_) . text
 
-display1_ :: MonadWidget t m => Text -> m ()
+display1_ :: DomBuilder t m => Text -> m ()
 display1_ = elClass "h1" (unCssClass mdcTypographyDisplay1_) . text
 
-headline_ :: MonadWidget t m => Text -> m ()
+headline_ :: DomBuilder t m => Text -> m ()
 headline_ = elClass "h1" (unCssClass mdcTypographyHeadline_) . text
 
-title_ :: MonadWidget t m => Text -> m ()
+title_ :: DomBuilder t m => Text -> m ()
 title_ = elClass "h2" (unCssClass mdcTypographyTitle_) . text
 
-caption_ :: MonadWidget t m => Text -> m ()
+caption_ :: DomBuilder t m => Text -> m ()
 caption_ = elClass "span" (unCssClass mdcTypographyCaption_) . text
 
-titleCaption_ :: MonadWidget t m => Text -> Text -> m ()
+titleCaption_ :: DomBuilder t m => Text -> Text -> m ()
 titleCaption_ t c = title_ t >> text t >> caption_ c
 
-subheading2_ :: MonadWidget t m => Text -> m ()
+subheading2_ :: DomBuilder t m => Text -> m ()
 subheading2_ = elClass "h3" (unCssClass mdcTypographySubheading2_) . text
 
-subheading1_ :: MonadWidget t m => Text -> m ()
+subheading1_ :: DomBuilder t m => Text -> m ()
 subheading1_ = elClass "h4" (unCssClass mdcTypographySubheading1_) . text
 
-body1_ :: MonadWidget t m => Text -> m ()
+body1_ :: DomBuilder t m => Text -> m ()
 body1_ = elClass "p" (unCssClass mdcTypographyBody1_) . text
 
-body2_ :: MonadWidget t m => Text -> m ()
+body2_ :: DomBuilder t m => Text -> m ()
 body2_ = elClass "p" (unCssClass mdcTypographyBody2_) . text
